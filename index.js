@@ -96,13 +96,20 @@ class Car {
      this.tank = this.tank - (distance / this.milesPerGallon);
 
    }else{
+     this.odometer = this.odometer + (this.milesPerGallon * this.tank);
      this.tank = 0;
      return `I ran out of fuel at ${this.odometer} miles!`;
    }
   }
   
 }
+const prius= new Car({
+  model: 'Prius',
+  milesPerGallon: 40
+})
 
+console.log(prius.fill(10));
+console.log(prius.drive(100));
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -151,7 +158,7 @@ class Instructor extends Lambdasian {
     return `today we are learning about ${subject}`;
   }
   grade(student, subject){
-    return `${this.name} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 /*
